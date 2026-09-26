@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+    
     <a href="/tasks/create" class="btn btn-primary">+ Add New Task</a>
 
     <h2 style="margin: 1.5rem 0;">Your Tasks</h2>
@@ -80,6 +80,7 @@
         @endif
 
     </div>
+
 
 
     <!-- JAVASCRIPT -->

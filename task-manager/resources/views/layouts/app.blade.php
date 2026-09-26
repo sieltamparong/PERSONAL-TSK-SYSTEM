@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Task Manager</title>
     <style>
+          
         * { 
         margin: 0; 
         padding: 0; 
@@ -12,13 +13,13 @@
         font-family: sans-serif; 
     }
         body { 
-        background: #f4f4f9; 
-        padding: 2rem; 
+        background: linear-gradient(135deg, #F7CAC9 0%, #D5D6EA 50%, #B3CEE5 100%);
+        padding: 7rem; 
         max-width: 1000px; 
         margin: 0 auto; 
     }
         h1 { 
-        color: #333; 
+        color: #002f75; 
         margin-bottom: 2rem; 
         text-align: center; 
     }
@@ -32,15 +33,15 @@
         cursor: pointer; 
     }
         .btn-primary { 
-        background: #2563eb; 
+        background: #225ad4; 
         color: white; 
     }
         .btn-success { 
-        background: #16a34a; 
-        color: white; 
+        background: #0f8797; 
+        color: black; 
     }
         .btn-warning { 
-        background: #f59e0b; 
+        background: #a73c3c; 
         color: white; 
     }
         .btn-danger { 
@@ -55,11 +56,12 @@
         color: #166534; 
     }
         .card { 
-        background: white; 
+        background: #d155d1,; 
         padding: 1.5rem; 
-        border-radius: 8px; 
+        border-box: 10px;
+        border-color: black;
         margin-bottom: 1rem; 
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+        box-shadow: 5px 5px rgba(0,0,0,0.1); 
     }
         .form-group { 
         margin-bottom: 1rem; 
@@ -76,16 +78,17 @@
             border-radius: 4px; 
         }
         .status-pending { 
-            color: #d97706; 
+            color: #804edd; 
             font-weight: bold; 
         }
         .status-completed { 
-            color: #16a34a; 
+            color: #412cff; 
             font-weight: bold; 
         }
     </style>
 </head>
 <body>
+    
     <h1>📋 Personal Task Manager</h1>
 
     @if(session('success'))
