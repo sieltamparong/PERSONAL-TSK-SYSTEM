@@ -23,18 +23,22 @@ class TaskController extends Controller
     }
 
     // 3. SAVE new task to DB
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         // Validate input
         $validated = $request->validate([
             'task_name'   => 'required|max:255',
-            'description' => 'required',
+            'description' => 'nullable',
             'due_date'    => 'required|date',
         ]);
 
-        Task::create($validated); // Save to SQLite
+        $task = Task::create($validated);
 
-        return redirect()->route('tasks.index')->with('success', 'Task added!');
+        return response()->json([
+            'success'=> true,
+            'message'=> 'Task added!',
+            'task'=> $task
+        ]);
     }
 
     // 4. Show EDIT form
@@ -44,35 +48,47 @@ class TaskController extends Controller
     }
 
     // 5. UPDATE existing task
-    public function update(Request $request, Task $task): RedirectResponse
+    public function update(Request $request, Task $task) 
     {
         $validated = $request->validate([
             'task_name'   => 'required|max:255',
-            'description' => 'required',
+            'description' => 'nullable',
             'due_date'    => 'required|date',
             'status'      => 'required|in:Pending,Completed',
         ]);
 
         $task->update($validated);
 
-        return redirect()->route('tasks.index')->with('success', 'Task updated!');
+        return response()->json([
+            'success'=> true,
+            'message'=> 'Task Updated!',
+            'task'=> $task
+        ]);
     }
 
     // 6. DELETE task
-    public function destroy(Task $task): RedirectResponse
+    public function destroy(Task $task)
     {
         $task->delete();
 
-        return redirect()->route('tasks.index')->with('success', 'Task deleted!');
+        return response()->json([
+            'success' => true,
+            'message' => 'Task Deleted!'
+        ]);
     }
 
     // 7. TOGGLE status (Pending ↔ Completed)
-    public function toggleStatus(Task $task): RedirectResponse
+    public function toggleStatus(Task $task)
     {
-        $task->update([
-            'status' => $task->status === 'Pending' ? 'Completed' : 'Pending'
-        ]);
+    $task->update([
+        'status' => $task->status === 'Pending'
+            ? 'Completed'
+            : 'Pending'
+    ]);
 
-        return back()->with('success', 'Status updated!');
+    return response()->json([
+        'success' => true,
+        'status' => $task->status
+    ]);
     }
 }
