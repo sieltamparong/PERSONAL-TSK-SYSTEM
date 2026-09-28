@@ -34,7 +34,7 @@ This is how will add a task or works you want to display and it requires task na
 After adding the tasks, this is what it looks when it displayed in the task board.
 <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/1a9f5417-e324-4e20-904b-3612d859c831" />
 
-## 4. Marked as PENDING OR COMPLETE
+## 4. Update the status if PENDING OR COMPLETE
 Then as you can see it also can marked as "Pending" or "Complete" tasks.
 <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/4ae70e69-cf9a-41de-8127-11175647153f" />
 
